@@ -33,14 +33,14 @@ class Person(models.Model):
     def save(self, *args, **kwargs):
         super(Person, self).save(*args, **kwargs)
 
-        data = {'cliente': self.first_name}
+        data = {'cliente': self.first_name, 'age': self.age}
         plain_text = render_to_string('clientes/emails/novo_cliente.txt', data)
         html_email = render_to_string('clientes/emails/novo_cliente.html', data)
         send_mail(
             'Novo cliente cadastrado',
             plain_text,
-            'django@gregorypacheco.com.br',
-            ['django@gregorypacheco.com.br'],
+            'luizfarsoft@gmail.com',
+            ['luizfarsoft@gmail.com'],
             html_message=html_email,
             fail_silently=False,
         )
@@ -53,11 +53,11 @@ class Person(models.Model):
         )
 
         message1 = (
-            'Subject here', 'Here is the message', 'django@gregorypacheco.com.br',
-            ['django@gregorypacheco.com.br',])
-        message2 = ('Another Subject', 'Here is another message', 'django@gregorypacheco.com.br',
-                    ['django@gregorypacheco.com.br',])
+            'Subject here', 'Here is the message', 'luizfarsoft@gmail.com',
+            ['luizfarsoft@gmail.com',])
+        message2 = ('Another Subject', 'Here is another message', 'luizfarsoft@gmail.com',
+                    ['luizfarsoft@gmail.com',])
         send_mass_mail([message1, message2], fail_silently=False)
 
     def __str__(self):
-        return self.first_name + ' ' + self.last_name
+        return self.first_name + ' ' + self.last_name + ' Idade: ' + self.age

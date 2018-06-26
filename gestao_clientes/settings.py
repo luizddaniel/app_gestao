@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['gestao-clientes2.herokuapp.com', 'localhost', '127.0.0.1']
 
 INTERNAL_IPS = ['127.0.0.1']
 
-ADMINS = [('Gregory', 'django@gregorypacheco.com.br'),]
+ADMINS = [('Luiz Fernando', 'luizfarsoft@gmail.com'),]
 # Application definition
 
 INSTALLED_APPS = [
@@ -178,10 +178,11 @@ STATIC_URL = '/static/'
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = 25
+EMAIL_PORT = 465
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = 'django2018'
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
 
 # STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

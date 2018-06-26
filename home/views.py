@@ -24,7 +24,7 @@ def my_logout(request):
 
 
 class HomePageView(TemplateView):
-    template_name = 'home2.html'
+    template_name = 'home.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -35,7 +35,7 @@ class HomePageView(TemplateView):
 class MyView(View):
 
     def get(self, request, *args, **kwargs):
-        response = render_to_response('home3.html')
+        response = render_to_response('home.html')
         response.set_cookie('color', 'blue', max_age=1000)
         mycookie = request.COOKIES.get('color')
         print(mycookie)
